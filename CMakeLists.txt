@@ -57,6 +57,7 @@ pico_enable_stdio_usb(leituradosbotoes 1)   # Atualizado
 target_link_libraries(leituradosbotoes      
         pico_stdlib
         pico_cyw43_arch_lwip_threadsafe_background
+        hardware_adc
         )
 
 target_include_directories(leituradosbotoes PRIVATE  # Atualizado

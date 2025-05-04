@@ -102,16 +102,16 @@ void send_data_to_server(const char *path, char *request_body, const char *type_
 }
 
 // Função que monta o JSON e chama o envio
-void create_request(char *data) {
+void create_request(const char *status, int total, float temperatura) {
     const char *type_method = "POST";
     const char *path = SERVER_PATH;
     char temp_json[256];
 
     snprintf(temp_json, sizeof(temp_json),
-             "{ \"dado\" : \"%s\" }",
-             data);
+             "{ \"status\": \"%s\", \"total\": %d, \"temperatura\": %.1f }",
+             status, total, temperatura);
 
-    // Alocando cópia dinâmica
+    // Alocar memória dinamicamente
     char *json_copy = malloc(strlen(temp_json) + 1);
     if (!json_copy) {
         printf("Erro ao alocar memória\n");
@@ -119,7 +119,7 @@ void create_request(char *data) {
     }
     strcpy(json_copy, temp_json);
 
-    printf("Enviando para http://%s:%d%s -> %s\n", SERVER_IP, SERVER_PORT, SERVER_PATH, data);
+    printf("Enviando para http://%s:%d%s -> %s\n", SERVER_IP, SERVER_PORT, SERVER_PATH, temp_json);
 
     send_data_to_server(path, json_copy, type_method);
 }

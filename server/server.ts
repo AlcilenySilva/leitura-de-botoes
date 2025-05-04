@@ -12,45 +12,48 @@
 //app.listen(port, () => {
   //  console.log(`Servidor escutando na porta ${port}`);
 //});//
-
-import express, { Request, Response } from 'express';
+ import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
-
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
+app.use(bodyParser.json());
 
-app.use(bodyParser.json()); 
-app.use(bodyParser.text({ type: '*/*' })); 
+let statusAtual = 'Ninguem entrou ou saiu';
+let totalAtual = 0;
+let temperaturaAtual = 0;
 
-let ultimoDado: string = 'Nenhum dado recebido ainda';
+app.post('/receber', (req, res) => {
+    const { status, total, temperatura } = req.body;
 
-app.post('/receber', (req: Request, res: Response) => {
-  let body;
+    // Atualiza as variáveis globais
+    statusAtual = status;
+    totalAtual = total;
+    temperaturaAtual = temperatura;
 
-  if (typeof req.body === 'string') {
-    try {
-      body = JSON.parse(req.body);
-    } catch (err) {
-      console.error("Erro ao fazer parse do JSON cru:", err);
-      return res.status(400).send("JSON inválido (texto)");
-    }
-  } else {
-    body = req.body;
-  }
-
-  const dado = body?.dado || 'valor não definido';
-  console.log("Dado recebido:", dado);
-  ultimoDado = dado;
-
-  res.send("JSON recebido com sucesso!");
+    console.log(`Status: ${status}, Total: ${total}, Temp: ${temperatura}°C`);
+    res.status(200).send('Dados recebidos com sucesso!');
 });
 
-app.get('/', (req: Request, res: Response) => {
-  res.send(`<h1>Último dado recebido:</h1><p>${ultimoDado}</p>`);
+// Página que mostra os dados em tempo real
+app.get('/', (req, res) => {
+    res.send(`
+        <html>
+            <head>
+                <meta http-equiv="refresh" content="5" />
+            </head>
+            <body>
+                <h1>Contador de pessoas</h1>
+                <p>${statusAtual}</p>
+                <p>Temperatura: ${temperaturaAtual}°C</p>
+                <p>Total de pessoas: ${totalAtual}</p>
+            </body>
+        </html>
+    `);
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor rodando em http://0.0.0.0:${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://192.168.0.77:${PORT}`);
 });
-
