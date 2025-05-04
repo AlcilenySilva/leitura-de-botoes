@@ -41,19 +41,19 @@ app.post('/receber', (req, res) => {
 app.get('/', (req, res) => {
     res.send(`
         <html>
-            <head>
-                <meta http-equiv="refresh" content="5" />
-            </head>
-            <body>
-                <h1>Contador de pessoas</h1>
-                <p>${statusAtual}</p>
-                <p>Temperatura Interna: ${temperaturaAtual}°C</p>
-                <p>Total de pessoas: ${totalAtual}</p>
-            </body>
+        <head>
+            <meta http-equiv="refresh" content="1">
+            <title>Contador de Pessoas</title>
+        </head>
+        <body>
+            <h1>Contador de pessoas</h1>
+            <h2>${statusAtual}</h2>
+            <p>Temperatura: ${temperaturaAtual}°C</p>
+            <p>Total de pessoas: ${totalAtual}</p>
+        </body>
         </html>
     `);
 });
-
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://192.168.0.77:${PORT}`);
 });
