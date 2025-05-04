@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
             <body>
                 <h1>Contador de pessoas</h1>
                 <p>${statusAtual}</p>
-                <p>Temperatura: ${temperaturaAtual}°C</p>
+                <p>Temperatura Interna: ${temperaturaAtual}°C</p>
                 <p>Total de pessoas: ${totalAtual}</p>
             </body>
         </html>
