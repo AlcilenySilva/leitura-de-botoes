@@ -1,5 +1,5 @@
 Monitoramento de Entrada com Microcontrolador e Servidor Web
-Este projeto tem como objetivo monitorar o status de um botão físico da placa BitDogLab, enviando atualizações em intervalos de 1 segundo para um servidor web via conexão TCP. Como desafio adicional, também foi integrada a leitura de temperatura ambiente, enviada junto com os dados do botão.
+Este projeto tem como objetivo monitorar o status de um botão físico da placa BitDogLab, enviando atualizações em intervalos de 1 segundo para um servidor web via conexão TCP. Como desafio adicional, também foi integrada a leitura de temperatura interna, enviada junto com os dados do botão.
 
 Funcionalidades
 Envio periódico (a cada 1 segundo) do estado do botão.
