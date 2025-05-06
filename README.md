@@ -24,27 +24,17 @@ Total de pessoas
 
  Comunicação TCP com pilha de rede leve lwIP
 
-🛠️ Backend com Node.js, usando:
+Backend com Node.js, usando:
 
 Express para criar o servidor TypeScript 
 
-🖥️  HTML simples com autoatualização
+HTML simples com autoatualização
 
 🚀 Como Executar
-🖥 Servidor
-Instale as dependências:
+ Servidor
 
-bash
-Copiar
-Editar
 npm install
-Inicie o servidor:
-
-bash
-Copiar
-Editar
 npm run start
- Placa BitDog Lab
 Compile e carregue o firmware com o código C na placa.
 
 Verifique se o IP e a porta do servidor estão corretos no código da placa.
