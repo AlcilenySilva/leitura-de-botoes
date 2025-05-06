@@ -50,4 +50,4 @@ Compile e carregue o firmware com o código C na placa.
 Verifique se o IP e a porta do servidor estão corretos no código da placa.
 
 🌍 Acesse no navegador
-Vá até http://<IP_DA_MAQUINA>:3000
+http://<IP_DA_MAQUINA>:3000
