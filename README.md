@@ -1,14 +1,17 @@
-Monitoramento de Entrada com Microcontrolador e Servidor Web
-Este projeto tem como objetivo monitorar o status de um botão físico da placa BitDogLab, enviando atualizações em intervalos de 1 segundo para um servidor web via conexão TCP. Como desafio adicional, também foi integrada a leitura de temperatura interna, enviada junto com os dados do botão.
 
-Funcionalidades
-Envio periódico (a cada 1 segundo) do estado do botão.
+📡 Leitura dos status dos botões da placa BitDogLab
+Este projeto tem como objetivo monitorar o status de botões físicos conectados à placa BitDog Lab, enviando atualizações periódicas para um servidor web via Wi-Fi. Além disso, a temperatura interna da placa também é monitorada e enviada junto com os dados do botão.
 
-Identificação de entrada e saída com base nos cliques.
+🔧 Funcionalidades
+⏱️ Atualizações periódicas (a cada 1 segundo) via protocolo TCP
 
-Leitura de temperatura com sensor digital.
+🔘 Monitoramento de botão físico (identifica cliques como entrada ou saída)
 
-Interface web que exibe em tempo real:
+🌡️ Leitura da temperatura interna
+
+👥 Contagem de pessoas presentes, com base nas entradas/saídas
+
+🌐 Interface web em tempo real com:
 
 Última ação registrada (entrada ou saída)
 
@@ -16,33 +19,35 @@ Temperatura atual
 
 Total de pessoas
 
-Tecnologias utilizadas
-Microcontrolador programado em C, utilizando uma pilha de rede leve (lwIP)
+🧰 Tecnologias Utilizadas
+⚙️ Placa BitDog Lab programada em C
 
-Comunicação com servidor via protocolo TCP, enviando dados em formato JSON
+🌐 Comunicação TCP com pilha de rede leve lwIP
 
-Backend desenvolvido com Node.js e Express
+🛠️ Backend com Node.js, usando:
 
-Visualização dos dados em tempo real por meio de uma página web simples
+Express para criar o servidor TypeScript 
 
-Como executar
-Servidor
+🖥️  HTML simples com autoatualização
 
-Instale as dependências com:
+🚀 Como Executar
+🖥️ Servidor
+Instale as dependências:
+
+bash
+Copiar
+Editar
 npm install
+Inicie o servidor:
 
-Inicie o servidor com:
-node server.js
+bash
+Copiar
+Editar
+npm run start
+📦 Placa BitDog Lab
+Compile e carregue o firmware com o código C na placa.
 
-Dispositivo de envio
+Verifique se o IP e a porta do servidor estão corretos no código da placa.
 
-Compile e carregue o firmware no microcontrolador.
-
-Verifique se o IP e a porta do servidor estão configurados corretamente no código.
-
-Acesse a visualização no navegador
-
-Visite http://<IP do servidor>:3000 para acompanhar os dados em tempo real.
-Créditos 
-A configuração básica inicial wifi/servidor foi baseado foi baseado no código de
-@alexsousadev disponível em: https://github.com/alexsousadev/wifi-init.git
+🌍 Acesse no navegador
+Vá até http://<IP_DA_MAQUINA>:3000
