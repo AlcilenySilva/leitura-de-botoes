@@ -7,11 +7,11 @@ Este projeto tem como objetivo monitorar o status de botões físicos conectados
 
  Monitoramento de botão físico (identifica cliques como entrada ou saída)
 
-🌡 Leitura da temperatura interna
+ Leitura da temperatura interna
 
  Contagem de pessoas presentes, com base nas entradas/saídas
 
-🌐 Interface web em tempo real com:
+ Interface web em tempo real com:
 
 Última ação registrada (entrada ou saída)
 
@@ -31,7 +31,7 @@ Express para criar o servidor TypeScript
 🖥️  HTML simples com autoatualização
 
 🚀 Como Executar
-🖥️ Servidor
+🖥 Servidor
 Instale as dependências:
 
 bash
