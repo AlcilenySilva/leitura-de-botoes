@@ -28,9 +28,9 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
-
-#define WIFI_SSID "Quitoca"
-#define WIFI_PASSWORD "0135791113"
+// coloque o nome e a senha da sua internet
+#define WIFI_SSID "" 
+#define WIFI_PASSWORD ""
 
 void init_wifi(void);
 
